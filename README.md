@@ -1,5 +1,6 @@
 # Alcs
 All Longest Common Substrings and Fuzzy String Search for Rust
+
  Link to [crates.io](https://crates.io/crates/alcs)
 
 
