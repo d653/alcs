@@ -10,6 +10,7 @@
 //!
 //!
 //! # Example
+//!
 //! ```
 //! extern crate alcs;
 //! use alcs::Alcs;
@@ -27,8 +28,11 @@
 //!     }
 //! }
 //! ```
-//!Output:
+//!
+//! Output:
+//!
 //! ```
+//!
 //! LCS between "word" and "h" has length 0
 //! LCS between "word" and "he" has length 0
 //! LCS between "word" and "hel" has length 0
@@ -39,10 +43,13 @@
 //! LCS between "word" and "wor" has length 3
 //! ...
 //! LCS between "word" and "d" has length 1
-//!```
+//!
+//! ```
 //!
 //! Also, it is defined a trait that allows to fuzzy search a string:
+//!
 //! ```
+//!
 //! extern crate alcs;
 //! use alcs::FuzzyStrstr;
 //!
@@ -65,13 +72,18 @@
 //!        }
 //!    }
 //! }
-//!```
+//!
+//! ```
+//!
 //!Output:
-//!```
+//!
+//! ```
+//!
 //! "he.llo.wor.ld.!" contains "world" ("wor.ld") with score 0.8333333
 //! "he.llo.word" contains "world" ("word") with score 0.8
 //! "hello world" contains "word" ("world") with score 0.8
 //! "hello world" does not contain "banana"
+//!
 //! ```
 
 use std::cmp::{max, min};
@@ -81,12 +93,14 @@ use std::cmp::{max, min};
 /// It requires O(|a|\*|b|) space and O(|a|\*|b|) time
 ///
 /// ```
+///
 ///    let a = "word";
 ///    let b = "hello world";
 ///    let va = a.chars().collect::<Vec<char>>();
 ///    let vb = b.chars().collect::<Vec<char>>();
 ///    let (ih,iv) = alcs::compute_mat_ih_iv(&va,&vb);
 ///    println!("{:?}\n{:?}",ih,iv);
+///
 /// ```
 ///
 pub fn compute_mat_ih_iv<T>(a: &[T], b: &[T]) -> (Vec<Vec<usize>>, Vec<Vec<usize>>)
@@ -125,12 +139,14 @@ where
 /// It requires O(|a|+|b|) space and O(|a|*|b|) time
 ///
 /// ```
+///
 ///    let a = "word";
 ///    let b = "hello world";
 ///    let va = a.chars().collect::<Vec<char>>();
 ///    let vb = b.chars().collect::<Vec<char>>();
 ///    let ig = alcs::compute_vec_ig(&va,&vb);
 ///    println!("{:?}",ig);
+///
 /// ```
 pub fn compute_vec_ig<T>(a: &[T], b: &[T]) -> Vec<usize>
 where
@@ -165,6 +181,7 @@ where
 /// Constructs the vectors D<sub>G</sub><sup>0</sup> and V<sub>G</sub> using I<sub>G</sub>
 ///
 /// ```
+///
 ///    let a = "word";
 ///    let b = "hello world";
 ///    let va = a.chars().collect::<Vec<char>>();
@@ -172,6 +189,7 @@ where
 ///    let ig = alcs::compute_vec_ig(&va,&vb);
 ///    let (vg,dg) = alcs::compute_vg_dg_from_ig(&va,&vb,&ig);
 ///    println!("{:?}\n{:?}\n{:?}",ig,vg,dg);
+///
 /// ```
 pub fn compute_vg_dg_from_ig<T>(
     a: &[T],
@@ -206,6 +224,7 @@ where
 /// Constructs the vectors D<sub>G</sub><sup>0</sup> and V<sub>G</sub> using the matrix i<sub>h</sub>
 ///
 /// ```
+///
 ///    let a = "word";
 ///    let b = "hello world";
 ///    let va = a.chars().collect::<Vec<char>>();
@@ -214,6 +233,7 @@ where
 ///    let (ig,vg,dg) = alcs::compute_ig_vg_dg_from_ih_mat(&va,&vb,&ih);
 ///    println!("{:?}\n{:?}",ih,iv);
 ///    println!("{:?}\n{:?}\n{:?}",ig,vg,dg);
+///
 /// ```
 pub fn compute_ig_vg_dg_from_ih_mat<T>(
     a: &[T],
@@ -231,12 +251,14 @@ where
 /// Constructs the vectors I<sub>G</sub>, V<sub>G</sub>, D<sub>G</sub><sup>0<sup>
 ///
 /// ```
+///
 ///    let a = "word";
 ///    let b = "hello world";
 ///    let va = a.chars().collect::<Vec<char>>();
 ///    let vb = b.chars().collect::<Vec<char>>();
 ///    let (ig,vg,dg) = alcs::alcs(&va,&vb);
 ///    println!("{:?}\n{:?}\n{:?}",ig,vg,dg);
+///
 /// ```
 pub fn alcs<T>(a: &[T], b: &[T]) -> (Vec<usize>, Vec<Option<usize>>, Vec<Option<usize>>)
 where
@@ -250,12 +272,14 @@ where
 /// Constructs the matrices i<sub>h</sub>, i<sub>v</sub>, and the vectors I<sub>G</sub>, V<sub>G</sub>, D<sub>G</sub><sup>0</sub>
 ///
 /// ```
+///
 ///    let a = "word";
 ///    let b = "hello world";
 ///    let va = a.chars().collect::<Vec<char>>();
 ///    let vb = b.chars().collect::<Vec<char>>();
 ///    let (ih,iv,ig,vg,dg) = alcs::alcs_mat(&va,&vb);
 ///    println!("{:?}\n{:?}\n{:?}\n{:?}\n{:?}",ih,iv,ig,vg,dg);
+///
 /// ```
 pub fn alcs_mat<T>(
     a: &[T],
@@ -285,6 +309,7 @@ impl Alcs {
     /// It requires O(|a|+|b|) space and O(|a|*|b|) time
     ///
     /// ```
+    ///
     ///    let a = "word";
     ///    let b = "hello world";
     ///    let va = a.chars().collect::<Vec<char>>();
