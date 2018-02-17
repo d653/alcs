@@ -1,6 +1,6 @@
 [package]
 name = "alcs"
 version = "0.1.0"
-authors = ["me"]
+authors = ["gw653"]
 
 [dependencies]
