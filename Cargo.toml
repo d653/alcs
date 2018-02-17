@@ -1,6 +1,6 @@
 [package]
 name = "alcs"
-version = "0.1.1"
+version = "0.1.2"
 authors = ["gw653"]
 description = "All Longest Common Subsequences and String Fuzzy Search"
 license = "Apache-2.0/MIT"
