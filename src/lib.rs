@@ -1,5 +1,3 @@
-#![feature(inclusive_range_syntax)]
-
 //! Implementation of [An all-substrings common subsequence algorithm](https://www.sciencedirect.com/science/article/pii/S0166218X07002727)
 //!
 //! Given two strings s1 and s2, it is possible construct,
@@ -100,16 +98,16 @@ where
     let mut ih = vec![vec![0; nb + 1]; na + 1];
     let mut iv = vec![vec![0; nb + 1]; na + 1];
 
-    for j in 0..=nb {
+    for j in 0..(nb + 1) {
         ih[0][j] = j;
     }
 
-    for l in 0..=na {
+    for l in 0..(na + 1) {
         iv[l][0] = 0;
     }
 
-    for l in 1..=na {
-        for j in 1..=nb {
+    for l in 1..(na + 1) {
+        for j in 1..(nb + 1) {
             if a[l - 1] != b[j - 1] {
                 ih[l][j] = max(iv[l][j - 1], ih[l - 1][j]);
                 iv[l][j] = min(iv[l][j - 1], ih[l - 1][j]);
@@ -143,13 +141,13 @@ where
     let mut ih = vec![vec![0; nb + 1], vec![0; nb + 1]];
     let mut iv = vec![vec![0; nb + 1], vec![0; nb + 1]];
 
-    for j in 0..=nb {
+    for j in 0..(nb + 1) {
         ih[0][j] = j;
     }
 
-    for l in 1..=na {
+    for l in 1..(na + 1) {
         iv[1][0] = 0;
-        for j in 1..=nb {
+        for j in 1..(nb + 1) {
             if a[l - 1] != b[j - 1] {
                 ih[1][j] = max(iv[1][j - 1], ih[0][j]);
                 iv[1][j] = min(iv[1][j - 1], ih[0][j]);
@@ -190,7 +188,7 @@ where
 
     let mut i = 1;
 
-    for j in 1..=nb {
+    for j in 1..(nb + 1) {
         if ig[j] == 0 {
             dg[i] = Some(j);
             i += 1;
@@ -199,7 +197,7 @@ where
         }
     }
 
-    for l in i..=na {
+    for l in i..(na + 1) {
         dg[l] = None;
     }
     (vg, dg)
