@@ -1,8 +1,10 @@
 [package]
 name = "alcs"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["gw653"]
 description = "All Longest Common Subsequences and String Fuzzy Search"
 license = "Apache-2.0/MIT"
+documentation = "https://docs.rs/crate/alcs"
+repository = "https://github.com/gw653/alcs"
 
 [dependencies]
