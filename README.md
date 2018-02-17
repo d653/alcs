@@ -14,7 +14,7 @@ Fuzzy substring for Rust
 
 
  # All LCS
- ```
+ ```rust
  extern crate alcs;
  use alcs::Alcs;
 
@@ -46,7 +46,7 @@ Output:
 ```
 # Fuzzy substring
  Also, it is defined a trait that allows to fuzzy search a string:
- ```
+ ```rust
  extern crate alcs;
  use alcs::FuzzyStrstr;
 
