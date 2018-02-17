@@ -1,5 +1,5 @@
 # Alcs
-Fuzzy substring for Rust
+All Longest Common Substrings and Fuzzy String Search for Rust
 
 
  Implementation of [An all-substrings common subsequence algorithm](https://www.sciencedirect.com/science/article/pii/S0166218X07002727)
