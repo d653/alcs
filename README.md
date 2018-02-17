@@ -1,5 +1,6 @@
 # Alcs
 All Longest Common Substrings and Fuzzy String Search for Rust
+ Link to [crates.io](https://crates.io/crates/alcs)
 
 
  Implementation of [An all-substrings common subsequence algorithm](https://www.sciencedirect.com/science/article/pii/S0166218X07002727)
